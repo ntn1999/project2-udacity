@@ -40,3 +40,8 @@ These are the notes from a meeting with the frontend developer that describe wha
 - user_id
 - status of order (active or complete)
 
+## Database schema
+- Table: Users (id SERIAL PRIMARY KEY, first_name VARCHAR(100), last_name VARCHAR(100), password VARCHAR)
+- Table: Products ( id SERIAL PRIMARY KEY, name VARCHAR(64), price integer, category VARCHAR(64))
+- Table: Orders (id SERIAL PRIMARY KEY, status VARCHAR(15), user_id bigint REFERENCES users(id))
+- Table: Order-products ( id SERIAL PRIMARY KEY, quantity integer, order_id bigint REFERENCES orders(id), product_id bigint REFERENCES products(id))
